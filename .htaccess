@@ -1,0 +1,24 @@
+#htaccess for production
+
+# RewriteEngine On
+# RewriteCond %{HTTPS} off [OR]
+# RewriteCond %{HTTP_HOST} !^www\. [OR]
+# RewriteCond %{HTTP_HOST} ^baylilab-test\.net$ [NC]
+# RewriteRule ^ https://www.baylilab-test.net%{REQUEST_URI} [R=301,L,NE]
+# RewriteCond %{THE_REQUEST} ^[A-Z]+\ /index\.php(/[^\ ]*)?\ HTTP/ 
+# RewriteRule ^index\.php(/(.*))?$ baylilab-test.net/$2 [R=301,L]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php/$1 [L]
+
+# htaccess for local
+
+<IfModule mod_rewrite.c>
+  Options -Indexes
+
+  RewriteEngine On
+  RewriteCond $1 !^(index\\.php|resources|robots\\.txt)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)$ index.php?/$1 [L,QSA]
+</IfModule>

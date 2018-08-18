@@ -1,0 +1,51 @@
+*{margin: 0;padding: 0}
+
+
+
+header {
+    background: #0984e3;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.article .products {
+    width: 28%;
+    background-color: #dfe6e9;
+    padding: 1px 1px 5px 1px;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 3px;
+}
+
+.article .products p {
+    margin-bottom: 8px;
+}
+
+.article .products .title {
+    color: #2d3436;
+    font-weight: bold;
+}
+
+.article .products .price {
+    color: #d63031;
+    font-weight: bold;
+}
+.cart-table #clear   {
+    margin-bottom: 10px;
+}
+
+.article  .shipping {
+
+    display: none;
+}
+
+footer {
+    background: #b2bec3;
+    padding-top: 20px;
+}
+
+.detail_order ul > li{
+    list-style: none !important;
+}
+
