@@ -58,7 +58,11 @@ if(isset($_GET['successOrder'])) {
         <p><button class="btn btn-success" id="place_holder"
         <?php $a =  (count($this->cart->contents()) == 0) ?  "disabled = 'disabled'" : ""; ?>
         <?php echo $a; ?>
-         >Place Order</button></p>   
+         >Place Order</button></p>
+          
+          <?php if(isset($_GET['successOrder'])) { ?>
+             <p><a href="<?php echo site_url('PrintInvoice/invoice') ?>" class="btn btn-primary" id="print_invoice">Print Invoice</a></p>   
+          <?php } ?>
             </div>
             <div class="shipping" id="shipping">
                 <form action="" method="post">

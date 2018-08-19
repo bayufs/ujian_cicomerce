@@ -2,6 +2,7 @@
 
 class CheckoutController extends MY_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
@@ -51,9 +52,9 @@ class CheckoutController extends MY_Controller
                 );
                 $this->db->insert('order_detail', $data_detail_order);
             }
-
-            $this->cart->destroy();
-            return redirect('/?successOrder');
-        }
+            
+        } 
+       
+        return redirect('ShopingCartController/?successOrder');
     }
 }
