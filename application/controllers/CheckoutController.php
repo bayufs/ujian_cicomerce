@@ -42,7 +42,7 @@ class CheckoutController extends MY_Controller
 
         if($this->db->insert('order', $data)) {
             $order_code = $this->Products->getLastOrder();
-
+            $products = $this->Products->getAllProduct();
             foreach($this->cart->contents() as $item){
                 $data_detail_order = array(
                     'order_code' => $order_code->order_code,
@@ -54,7 +54,9 @@ class CheckoutController extends MY_Controller
             }
             
         } 
+
+        $this->cart->destroy();
        
-        return redirect('ShopingCartController/?successOrder');
+        $this->load->view('mycart', compact('order_code','products'));
     }
 }

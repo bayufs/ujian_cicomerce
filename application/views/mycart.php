@@ -60,8 +60,8 @@ if(isset($_GET['successOrder'])) {
         <?php echo $a; ?>
          >Place Order</button></p>
           
-          <?php if(isset($_GET['successOrder'])) { ?>
-             <p><a href="<?php echo site_url('PrintInvoice/invoice') ?>" class="btn btn-primary" id="print_invoice">Print Invoice</a></p>   
+          <?php if($this->uri->segment(2) == 'finishOrder') { ?>
+             <p><a href="<?php echo site_url('PrintInvoice/invoice/'.$order_code->order_code) ?>" class="btn btn-primary" id="print_invoice">Print Invoice</a></p>   
           <?php } ?>
             </div>
             <div class="shipping" id="shipping">

@@ -45,26 +45,46 @@
 </head>
 <body>
 	<div id="outtable">
+  <h2 style="text-align:center">Invoice</h2>
 	  <table>
 	  	<thead>
-	  		<tr>
-	  			<th class="short">#</th>
-	  			<th class="normal">First Name</th>
-	  			<th class="normal">Last Name</th>
-	  			<th class="normal">Username</th>
-	  		</tr>
+          <tr>
+           <th width="40%">Name</th>
+           <th width="15%">Quantity</th>
+           <th width="15%">Price</th>
+           <th width="15%">Total</th>
+           
+          </tr>
 	  	</thead>
 	  	<tbody>
-	  		
-	  		  <tr>
-	  			<td></td>
-	  			<td></td>
-	  			<td></td>
-	  			<td></td>
-	  		  </tr>
-	  		
+      <?php foreach($cart as $items) :?>
+      <tr> 
+          <td><?php echo $items->product_name  ?></td>
+          <td><?php echo $items->qty  ?></td>
+          <td><?php echo $items->product_price  ?></td>
+          <td><?php echo $items->sub_total  ?></td>
+         
+         </tr>
+        <?php endforeach;?>
+       <tr>
+          <td colspan="3" align="right">Total</td>
+          <td><?php echo $total->sub_total ?></td>
+         </tr>  		
 	  	</tbody>
 	  </table>
+
+    <table>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+    <ul>
+        <li><span>ID ORDER : <mark><?php echo $shipping_order->order_code ?></mark></span></li>
+        <li><span>Name : <?php echo $shipping_order->name ?></span></li>
+        <li><span>Phone :<?php echo $shipping_order->phone ?> </span></li>
+        <li><span>Destination Shipping :<?php echo $shipping_order->destination_shipping ?> </span></li>
+    </ul>
+
 	 </div>
 </body>
 </html>
